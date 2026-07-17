@@ -31,14 +31,22 @@ CURRENCIES = {
 }
 
 ALIASES = {
-    'usd': 'USD', '$': 'USD', 'доллар': 'USD', 'долларов': 'USD', 'баксов': 'USD',
-    'eur': 'EUR', 'евро': 'EUR', '€': 'EUR',
-    'rub': 'RUB', 'руб': 'RUB', 'р': 'RUB', 'рублей': 'RUB',
-    'pln': 'PLN', 'зл': 'PLN', 'злотых': 'PLN',
+    # USD
+    'usd': 'USD', '$': 'USD', 'dollar': 'USD', 'dollars': 'USD', 'доллар': 'USD', 'долларов': 'USD', 'баксов': 'USD',
+    # EUR
+    'eur': 'EUR', 'euro': 'EUR', 'евро': 'EUR', '€': 'EUR',
+    # RUB
+    'rub': 'RUB', 'руб': 'RUB', 'р': 'RUB', 'рублей': 'RUB', 'рубль': 'RUB',
+    # PLN
+    'pln': 'PLN', 'зл': 'PLN', 'злотых': 'PLN', 'злотый': 'PLN',
+    # CNY
     'cny': 'CNY', 'юань': 'CNY', 'юаней': 'CNY',
-    'kzt': 'KZT', 'тг': 'KZT', 'тенге': 'KZT',
-    'byn': 'BYN', 'бун': 'BYN', 'бел': 'BYN', 'зайцев': 'BYN',
-    'uah': 'UAH', 'грн': 'UAH', 'гривна': 'UAH', 'гривны': 'UAH', 'гривен': 'UAH'
+    # KZT
+    'kzt': 'KZT', 'kz': 'KZT', 'тг': 'KZT', 'тенге': 'KZT',
+    # UAH
+    'uah': 'UAH', 'ua': 'UAH', 'грн': 'UAH', 'гривна': 'UAH', 'гривны': 'UAH', 'гривен': 'UAH',
+    # BYN
+    'byn': 'BYN', 'бун': 'BYN', 'бел': 'BYN', 'зайцев': 'BYN'
 }
 
 def get_all_rates():
