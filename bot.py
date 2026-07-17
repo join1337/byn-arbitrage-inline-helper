@@ -124,7 +124,7 @@ def query_text(inline_query):
           #  results.append(item)
             item = InlineQueryResultArticle(
                 id=str(index),
-                title=f"{flag} {amount:g} {base_currency} = {amount_target:.2f} {currency}",
+                title=f"{amount:g} {base_currency} = {amount_target:.2f} {currency} {flag}",
                 input_message_content=InputTextMessageContent(
                     message_text=full_text,
                     parse_mode="Markdown"
