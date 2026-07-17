@@ -111,11 +111,11 @@ def query_text(inline_query):
             
             item = InlineQueryResultArticle(
                 id=str(index),
-                title=f"В {currency} {flag}",
+                title=f"{currency} {flag}",
                 description=short_desc,
                 thumbnail_url=flag_icon_url,
-                thumbnail_width=48,
-                thumbnail_height=36,
+                thumbnail_width=28,
+                thumbnail_height=21,
                 input_message_content=InputTextMessageContent(
                     message_text=full_text,
                     parse_mode="Markdown"
