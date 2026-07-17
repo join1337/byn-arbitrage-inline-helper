@@ -30,17 +30,6 @@ CURRENCIES = {
     'UAH': '🇺🇦'
 }
 
-FLAGS_CODES = {
-    'BYN': 'by',
-    'USD': 'us',
-    'EUR': 'eu',
-    'RUB': 'ru',
-    'PLN': 'pl',
-    'CNY': 'cn',
-    'KZT': 'kz',
-    'UAH': 'ua'
-}
-
 ALIASES = {
     'usd': 'USD', '$': 'USD', 'dollar': 'USD', 'dollars': 'USD', 'доллар': 'USD', 'долларов': 'USD', 'баксов': 'USD',
     'eur': 'EUR', 'euro': 'EUR', 'евро': 'EUR', '€': 'EUR',
@@ -106,25 +95,11 @@ def query_text(inline_query):
             short_desc = f"{amount:g} {base_currency} = {amount_target:.2f} {currency}"
             full_text = f"💱 Конвертация:\n*{short_desc}* {flag}\n_По курсу НБРБ_"
             
-            country_code = FLAGS_CODES.get(currency, 'by')
-            flag_icon_url = f"https://flagcdn.com/w160/{country_code}.png"
-            
-          #  item = InlineQueryResultArticle(
-               ## id=str(index),
-               # title=f"{currency} {flag}",
-               # description=short_desc,
-               # thumbnail_url=flag_icon_url,
-               # thumbnail_width=28,
-               # thumbnail_height=21,
-              #  input_message_content=InputTextMessageContent(
-               #     message_text=full_text,
-              #      parse_mode="Markdown"
-              #  )
-            #)
-          #  results.append(item)
+            # Мы полностью убрали описание (description) и картинку (thumbnail).
+            # Теперь строчка будет максимально тонкой, а флаг вернется в начало текста.
             item = InlineQueryResultArticle(
                 id=str(index),
-                title=f"{amount:g} {base_currency} = {amount_target:.2f} {currency} {flag}",
+                title=f"{flag} {amount:g} {base_currency} = {amount_target:.2f} {currency}",
                 input_message_content=InputTextMessageContent(
                     message_text=full_text,
                     parse_mode="Markdown"
