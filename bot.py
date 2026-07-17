@@ -109,13 +109,22 @@ def query_text(inline_query):
             country_code = FLAGS_CODES.get(currency, 'by')
             flag_icon_url = f"https://flagcdn.com/w160/{country_code}.png"
             
+          #  item = InlineQueryResultArticle(
+               ## id=str(index),
+               # title=f"{currency} {flag}",
+               # description=short_desc,
+               # thumbnail_url=flag_icon_url,
+               # thumbnail_width=28,
+               # thumbnail_height=21,
+              #  input_message_content=InputTextMessageContent(
+               #     message_text=full_text,
+              #      parse_mode="Markdown"
+              #  )
+            #)
+          #  results.append(item)
             item = InlineQueryResultArticle(
                 id=str(index),
-                title=f"{currency} {flag}",
-                description=short_desc,
-                thumbnail_url=flag_icon_url,
-                thumbnail_width=28,
-                thumbnail_height=21,
+                title=f"{flag} {amount:g} {base_currency} = {amount_target:.2f} {currency}",
                 input_message_content=InputTextMessageContent(
                     message_text=full_text,
                     parse_mode="Markdown"
