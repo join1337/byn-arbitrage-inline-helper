@@ -26,7 +26,8 @@ CURRENCIES = {
     'RUB': '🇷🇺',
     'PLN': '🇵🇱',
     'CNY': '🇨🇳',
-    'KZT': '🇰🇿'
+    'KZT': '🇰🇿',
+    'UAH': '🇺🇦'
 }
 
 ALIASES = {
@@ -36,7 +37,8 @@ ALIASES = {
     'pln': 'PLN', 'зл': 'PLN', 'злотых': 'PLN',
     'cny': 'CNY', 'юань': 'CNY', 'юаней': 'CNY',
     'kzt': 'KZT', 'тг': 'KZT', 'тенге': 'KZT',
-    'byn': 'BYN', 'бун': 'BYN', 'бел': 'BYN', 'зайцев': 'BYN'
+    'byn': 'BYN', 'бун': 'BYN', 'бел': 'BYN', 'зайцев': 'BYN',
+    'uah': 'UAH', 'грн': 'UAH', 'гривна': 'UAH', 'гривны': 'UAH', 'гривен': 'UAH'
 }
 
 def get_all_rates():
@@ -109,6 +111,6 @@ def query_text(inline_query):
 if __name__ == '__main__':
     threading.Thread(target=run_web_server, daemon=True).start()
 
-    print("Универсальный бот запущен!")
+    print("100%")
     bot.remove_webhook()
     bot.polling(none_stop=True)
