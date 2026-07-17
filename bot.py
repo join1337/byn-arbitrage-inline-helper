@@ -30,23 +30,26 @@ CURRENCIES = {
     'UAH': '🇺🇦'
 }
 
+FLAGS_CODES = {
+    'BYN': 'by',
+    'USD': 'us',
+    'EUR': 'eu',
+    'RUB': 'ru',
+    'PLN': 'pl',
+    'CNY': 'cn',
+    'KZT': 'kz',
+    'UAH': 'ua'
+}
+
 ALIASES = {
-    # USD
     'usd': 'USD', '$': 'USD', 'dollar': 'USD', 'dollars': 'USD', 'доллар': 'USD', 'долларов': 'USD', 'баксов': 'USD',
-    # EUR
     'eur': 'EUR', 'euro': 'EUR', 'евро': 'EUR', '€': 'EUR',
-    # RUB
     'rub': 'RUB', 'руб': 'RUB', 'р': 'RUB', 'рублей': 'RUB', 'рубль': 'RUB',
-    # PLN
     'pln': 'PLN', 'зл': 'PLN', 'злотых': 'PLN', 'злотый': 'PLN',
-    # CNY
     'cny': 'CNY', 'юань': 'CNY', 'юаней': 'CNY',
-    # KZT
     'kzt': 'KZT', 'kz': 'KZT', 'тг': 'KZT', 'тенге': 'KZT',
-    # UAH
-    'uah': 'UAH', 'ua': 'UAH', 'грн': 'UAH', 'гривна': 'UAH', 'гривны': 'UAH', 'гривен': 'UAH',
-    # BYN
-    'byn': 'BYN', 'бун': 'BYN', 'бел': 'BYN', 'зайцев': 'BYN'
+    'byn': 'BYN', 'бун': 'BYN', 'бел': 'BYN', 'зайцев': 'BYN',
+    'uah': 'UAH', 'ua': 'UAH', 'грн': 'UAH', 'гривна': 'UAH', 'гривны': 'UAH', 'гривен': 'UAH'
 }
 
 def get_all_rates():
@@ -103,10 +106,16 @@ def query_text(inline_query):
             short_desc = f"{amount:g} {base_currency} = {amount_target:.2f} {currency}"
             full_text = f"💱 Конвертация:\n*{short_desc}* {flag}\n_По курсу НБРБ_"
             
+            country_code = FLAGS_CODES.get(currency, 'by')
+            flag_icon_url = f"https://flagcdn.com/w160/{country_code}.png"
+            
             item = InlineQueryResultArticle(
                 id=str(index),
                 title=f"В {currency} {flag}",
                 description=short_desc,
+                thumbnail_url=flag_icon_url,
+                thumbnail_width=48,
+                thumbnail_height=36,
                 input_message_content=InputTextMessageContent(
                     message_text=full_text,
                     parse_mode="Markdown"
